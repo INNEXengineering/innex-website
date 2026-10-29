@@ -15,7 +15,7 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="container bar">
     <a href="/" class="brand" aria-label="INNEX Engineering home">
-      <Image src={logo} alt="INNEX Engineering logo" height={44} densities={[1, 2]} loading="eager" />
+      <Image src={logo} alt="INNEX Engineering logo" height={36} densities={[1, 2]} loading="eager" />
     </a>
     <div class="actions">
       <a class="btn call" href={SITE.phoneHref} aria-label={`Call ${SITE.phone}`}>
@@ -39,8 +39,9 @@ const path = Astro.url.pathname;
 <style>
   .site-header { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--paper); border-bottom: 3px solid var(--green); }
   .bar { display: flex; align-items: center; gap: 1rem 1.5rem; min-height: 4.25rem; flex-wrap: wrap; }
-  .brand { margin-right: auto; }
-  .brand img { width: auto; height: 44px; }
+  /* Navy logo needs a light plaque to read on the ink header. */
+  .brand { margin-right: auto; display: block; background: var(--paper); padding: 0.3rem 0.6rem; border-radius: var(--radius); }
+  .brand img { width: auto; height: 36px; }
   .actions { order: 2; display: flex; align-items: center; gap: 0.5rem; }
   nav { order: 1; display: flex; align-items: center; }
   ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
