@@ -1,0 +1,45 @@
+---
+import '@fontsource/archivo/700.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { organizationSchema, breadcrumbSchema, type Crumb } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  crumbs?: Crumb[];       // excluding Home; Home is prepended automatically
+  schema?: object[];
+  noindex?: boolean;
+  ogType?: 'website' | 'profile' | 'article';
+}
+const { title, description, crumbs = [], schema = [], noindex = false, ogType } = Astro.props;
+const fullCrumbs = crumbs.length ? [{ name: 'Home', href: '/' }, ...crumbs] : [];
+const graph = [organizationSchema(), ...schema, ...(fullCrumbs.length ? [breadcrumbSchema(fullCrumbs)] : [])];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1b2d" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <SEO title={title} description={description} noindex={noindex} type={ogType} />
+    <JsonLd graph={graph} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    {fullCrumbs.length > 0 && <Breadcrumbs crumbs={fullCrumbs} />}
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

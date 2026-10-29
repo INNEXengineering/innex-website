@@ -1,3 +1,10 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site.config';
 ---
-<html lang="en"><head><title>INNEX Engineering</title></head><body><h1>INNEX</h1></body></html>
+<BaseLayout
+  title="Forensic Engineering & Safety Expert Witness | INNEX"
+  description="Independent forensic mechanical engineering and safety expert witness for plaintiff and defense: industrial accidents, equipment failure, workplace injury."
+>
+  <section class="section container"><h1>{SITE.tagline}</h1></section>
+</BaseLayout>

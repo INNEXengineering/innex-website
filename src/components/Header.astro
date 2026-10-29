@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/innex-logo.png';
+import { SITE } from '../site.config';
+
+const NAV = [
+  { href: '/expert-witness/', label: 'Expert Witness' },
+  { href: '/case-types/', label: 'Case Types' },
+  { href: '/services/', label: 'Consulting' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand" aria-label="INNEX Engineering home">
+      <Image src={logo} alt="INNEX Engineering logo" height={44} loading="eager" />
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+      <span class="visually-hidden">Menu</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <nav id="site-nav" aria-label="Main">
+      <ul>
+        {NAV.map((n) => (
+          <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+        ))}
+      </ul>
+      <a class="btn call" href={SITE.phoneHref}>Call {SITE.phone}</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--paper); border-bottom: 3px solid var(--green); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; flex-wrap: wrap; }
+  .brand img { width: auto; height: 44px; }
+  nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  nav a:not(.btn) { color: var(--paper); text-decoration: none; font-weight: 600; padding-block: 0.25rem; border-bottom: 2px solid transparent; }
+  nav a:not(.btn):hover, nav a[aria-current='page'] { border-bottom-color: var(--green); color: var(--paper); }
+  .call { padding: 0.6rem 1rem; }
+  .nav-toggle { display: none; background: none; border: 0; color: var(--paper); padding: 0.5rem; cursor: pointer; }
+  @media (max-width: 860px) {
+    :global(html.js) .nav-toggle { display: block; }
+    :global(html.js) nav { display: none; width: 100%; padding-bottom: 1rem; flex-direction: column; align-items: flex-start; }
+    :global(html.js) nav.open { display: flex; }
+    :global(html.js) ul { flex-direction: column; }
+  }
+</style>
+
+<script is:inline>
+  document.documentElement.classList.add('js');
+  (() => {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  })();
+</script>

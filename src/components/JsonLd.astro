@@ -1,0 +1,5 @@
+---
+interface Props { graph: object[]; }
+const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': Astro.props.graph });
+---
+<script type="application/ld+json" set:html={json} />

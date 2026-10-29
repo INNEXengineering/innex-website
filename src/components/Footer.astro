@@ -1,0 +1,53 @@
+---
+import { SITE, EXPERT } from '../site.config';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container grid">
+    <div>
+      <p class="name">{SITE.name}</p>
+      <p>Forensic mechanical engineering, industrial and construction safety analysis, and expert witness services for plaintiff and defense counsel nationwide.</p>
+      <p class="small">{SITE.firmRegistration}</p>
+    </div>
+    <div>
+      <p class="h">Expert Witness</p>
+      <ul>
+        <li><a href="/expert-witness/">Litigation Support</a></li>
+        <li><a href="/case-types/">Case Types</a></li>
+        <li><a href={EXPERT.path}>{EXPERT.name}, {EXPERT.suffix}</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="h">Consulting</p>
+      <ul>
+        <li><a href="/services/process-safety-pha/">Process Safety &amp; PHA</a></li>
+        <li><a href="/services/failure-analysis-fmea/">Failure Analysis &amp; FMEA</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="h">Contact</p>
+      <ul>
+        <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
+        <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li><a href="/contact/">Submit a case inquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container legal">
+    <p>&copy; {year} {SITE.name}. All rights reserved. · <a href="/privacy/">Privacy</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--ink); color: #c9cfd8; padding-top: 3rem; font-size: 0.95rem; }
+  .grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+  .name { font: 700 1.25rem var(--font-head); color: var(--paper); }
+  .h { font-weight: 600; color: var(--paper); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+  ul { list-style: none; padding: 0; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #c9cfd8; }
+  a:hover { color: var(--paper); }
+  .small { font-size: 0.85rem; }
+  .legal { border-top: 1px solid var(--ink-2); margin-top: 2rem; padding-block: 1.25rem; font-size: 0.85rem; }
+  .legal p { margin: 0; }
+</style>
