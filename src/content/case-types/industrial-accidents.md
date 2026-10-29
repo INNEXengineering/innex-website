@@ -39,6 +39,8 @@ Paul Neumann, P.E., CMRP, CSP, brings more than 20 years of practical, technical
 
 ## What we investigate
 
+A typical investigation begins with incident reports, photographs, OSHA citations, inspection and maintenance records, and testimony, then moves to site and equipment inspection where the evidence still exists. Areas of focus include:
+
 - Process safety management (PSM) program compliance, including process hazard analyses and management of change
 - Mechanical integrity programs: inspection, testing, and maintenance of pressure vessels, piping, relief systems, and rotating equipment
 - Fixed and rotating machinery failures, including pumps, mechanical seals, and bolted joints
@@ -49,3 +51,7 @@ Paul Neumann, P.E., CMRP, CSP, brings more than 20 years of practical, technical
 ## Why process safety experience matters
 
 Paul has performed Process Hazard Analyses, Mechanical Integrity PSM compliance audits, and Failure Mode and Effects Analyses for industrial operations. That operational perspective, knowing what a functioning program looks like in practice, makes it possible to identify where a facility's program departed from accepted practice and regulatory requirements.
+
+His specialized training in ASME Section VIII pressure vessel design, bolted joint design, pumps and mechanical seals, and NFPA 70E electrical safety supports analysis of the specific equipment involved. His Certified Maintenance & Reliability Professional (CMRP) credential bears directly on whether inspection and maintenance practices were reasonable, and as a Certified Safety Professional he evaluates the procedures, training, and supervision surrounding the work, so the equipment and the safety program are assessed together.
+
+Opinions are documented against the applicable regulations and consensus standards, so the basis for each conclusion can be followed and tested in deposition and at trial.
