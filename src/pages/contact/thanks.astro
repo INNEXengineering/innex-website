@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../site.config';
+---
+<BaseLayout title="Inquiry Received" description="Thank you for contacting INNEX Engineering. Your case inquiry has been received and you will hear back directly." noindex>
+  <section class="section container prose">
+    <h1>Thank you. Your inquiry was received.</h1>
+    <p>You will hear back directly from the engineer. If your matter is time-sensitive, please call <a href={SITE.phoneHref}>{SITE.phone}</a>.</p>
+    <p><a href="/">Return to the home page</a></p>
+  </section>
+</BaseLayout>

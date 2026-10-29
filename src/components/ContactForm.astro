@@ -1,0 +1,83 @@
+---
+import { SITE } from '../site.config';
+const action = SITE.formspreeId ? `https://formspree.io/f/${SITE.formspreeId}` : '';
+const next = new URL('/contact/thanks/', SITE.url).href;
+const CASE_TYPES = ['Industrial / refinery accident', 'Workplace injury', 'Construction accident', 'Forklift / material handling',
+  'Equipment or machinery failure', 'Product liability', 'Premises liability', 'Trailer / heavy equipment',
+  'Off-road / recreational vehicle', 'Consulting (PHA, PSM, FMEA)', 'Other'];
+---
+{action ? (
+  <form class="cform" action={action} method="POST" data-enhance>
+    <input type="hidden" name="_next" value={next} />
+    <input type="hidden" name="_subject" value="New case inquiry: innexengineering.com" />
+    <p class="hp" aria-hidden="true"><label>Leave blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></p>
+    <div class="row">
+      <label><span>Name <span aria-hidden="true">*</span></span><input name="name" required autocomplete="name" /></label>
+      <label>Firm / Company<input name="firm" autocomplete="organization" /></label>
+    </div>
+    <div class="row">
+      <label><span>Email <span aria-hidden="true">*</span></span><input type="email" name="email" required autocomplete="email" /></label>
+      <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
+    </div>
+    <div class="row">
+      <label>You represent
+        <select name="represent"><option value="">Select…</option><option>Plaintiff</option><option>Defense</option><option>Insurer</option><option>Other</option></select>
+      </label>
+      <label>Case type
+        <select name="case_type"><option value="">Select…</option>{CASE_TYPES.map((c) => <option>{c}</option>)}</select>
+      </label>
+    </div>
+    <label>Key deadline (e.g., expert designation)<input name="deadline" /></label>
+    <label><span>Brief case description <span aria-hidden="true">*</span></span>
+      <textarea name="message" rows="6" required placeholder="What happened, equipment involved, and what you need from an expert. Please do not include confidential documents here."></textarea>
+    </label>
+    <button class="btn" type="submit">Send Inquiry</button>
+    <p class="status" role="status" aria-live="polite"></p>
+  </form>
+) : (
+  <div class="fallback">
+    <p>Call or email to discuss a case. Please include a brief summary and any deadlines.</p>
+    <div class="btn-row">
+      <a class="btn" href={SITE.phoneHref}>Call {SITE.phone}</a>
+      <a class="btn btn--ghost" href={`mailto:${SITE.email}?subject=Case%20inquiry`}>Email {SITE.email}</a>
+    </div>
+  </div>
+)}
+
+<style>
+  .cform { display: grid; gap: 1rem; }
+  .row { display: grid; gap: 1rem; }
+  @media (min-width: 640px) { .row { grid-template-columns: 1fr 1fr; } }
+  label { display: grid; gap: 0.35rem; font-weight: 600; }
+  input, select, textarea { font: inherit; font-weight: 400; padding: 0.7rem 0.8rem; border: 1px solid #9aa1ab; border-radius: var(--radius); background: var(--white); color: var(--ink); width: 100%; min-width: 0; }
+  .hp { position: absolute; left: -9999px; }
+  .status { min-height: 1.5em; font-weight: 600; }
+  .status.ok { color: var(--green-text); }
+  .status.err { color: #b42318; }
+  .fallback .btn { max-width: 100%; overflow-wrap: anywhere; }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-enhance]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = form.querySelector<HTMLElement>('.status')!;
+    const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    btn.disabled = true;
+    status.className = 'status';
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      status.classList.add('ok');
+      // "usually within one business day" is a service promise pending client confirmation before launch.
+      status.textContent = 'Thank you. Your inquiry was sent, and you will hear back directly, usually within one business day.';
+    } catch {
+      status.classList.add('err');
+      status.textContent = 'Sorry, the message could not be sent. Please call 281-755-9177 or email Paul@INNEXengineering.com.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>

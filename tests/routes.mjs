@@ -13,9 +13,11 @@ export const EXPECTED_ROUTES = [
   '/services/',
   '/about/',
   '/about/paul-neumann-pe/',
+  '/contact/',
+  '/privacy/',
   ...CASE_TYPES.map((s) => `/case-types/${s}/`),
   ...SERVICES.map((s) => `/services/${s}/`),
 ];
 
 // Routes that must exist but must NOT be indexed or listed in the sitemap.
-export const NON_INDEXED_ROUTES = [];
+export const NON_INDEXED_ROUTES = ['/about-us/', '/consultants/', '/contact/thanks/'];

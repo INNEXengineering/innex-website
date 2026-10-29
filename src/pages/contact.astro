@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../site.config';
+---
+<BaseLayout
+  title="Contact: Discuss a Case"
+  description="Contact INNEX Engineering to discuss an engineering or safety expert witness engagement. Call 281-755-9177 or send a brief case summary."
+  crumbs={[{ name: 'Contact', href: '/contact/' }]}
+>
+  <div class="container wrap">
+    <header>
+      <p class="eyebrow">Contact</p>
+      <h1>Discuss a Case</h1>
+      <p class="lead">Send a brief summary of the matter, or call directly. Inquiries go straight to the engineer.</p>
+      <dl>
+        <dt>Phone</dt><dd><a href={SITE.phoneHref}>{SITE.phone}</a></dd>
+        <dt>Email</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+        <dt>Service area</dt><dd>Nationwide</dd>
+      </dl>
+      <p class="small">Submitting an inquiry does not create an engagement. Please do not send confidential or privileged documents until a conflict check is complete.</p>
+    </header>
+    <section aria-labelledby="form-h">
+      <h2 id="form-h">Case Inquiry</h2>
+      <ContactForm />
+    </section>
+  </div>
+</BaseLayout>
+<style>
+  .wrap { display: grid; gap: 3rem; padding-block: 2rem 5rem; }
+  .wrap > * { min-width: 0; }
+  @media (min-width: 900px) { .wrap { grid-template-columns: 1fr 1.3fr; } }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.25rem; }
+  dt { font-weight: 600; }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  .small { font-size: 0.9rem; color: var(--muted); }
+</style>

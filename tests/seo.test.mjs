@@ -109,3 +109,36 @@ test('profile page has Person schema with credentials', () => {
   assert.ok(person, 'Person node');
   assert.ok(person.hasCredential.length >= 5, 'credentials listed');
 });
+
+test('internal links resolve to built files', () => {
+  const broken = [];
+  const walk = (dir) => {
+    for (const ent of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, ent.name);
+      if (ent.isDirectory()) walk(p);
+      else if (ent.name.endsWith('.html')) {
+        for (const a of parse(readFileSync(p, 'utf8')).querySelectorAll('a[href]')) {
+          const href = a.getAttribute('href');
+          if (!href.startsWith('/') || href.startsWith('//')) continue;
+          const path = href.split('#')[0].split('?')[0];
+          const target = path.endsWith('/') ? join(DIST, path, 'index.html') : join(DIST, path);
+          if (!existsSync(target)) broken.push(`${p.replace(DIST, '/')} -> ${href}`);
+        }
+      }
+    }
+  };
+  walk(DIST);
+  assert.deepEqual(broken, [], 'broken internal links');
+});
+
+test('404 page exists and is noindex', () => {
+  const html = readFileSync(join(DIST, '404.html'), 'utf8');
+  assert.match(html, /<meta name="robots" content="noindex/);
+});
+
+test('sitemap lists every expected route and no excluded ones', () => {
+  const xml = readdirSync(DIST).filter((f) => /^sitemap-\d+\.xml$/.test(f))
+    .map((f) => readFileSync(join(DIST, f), 'utf8')).join('');
+  for (const r of EXPECTED_ROUTES) assert.ok(xml.includes(`<loc>${SITE}${r}</loc>`), `sitemap missing ${r}`);
+  for (const r of [...NON_INDEXED_ROUTES, '/404/']) assert.ok(!xml.includes(`${SITE}${r}<`), `sitemap must exclude ${r}`);
+});
