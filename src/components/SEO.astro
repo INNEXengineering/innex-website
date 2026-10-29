@@ -10,7 +10,7 @@ const image = new URL(SITE.ogImage, SITE.url).href;
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonical} />
+{!noindex && <link rel="canonical" href={canonical} />}
 {noindex && <meta name="robots" content="noindex, follow" />}
 <meta property="og:type" content={type} />
 <meta property="og:site_name" content={SITE.name} />

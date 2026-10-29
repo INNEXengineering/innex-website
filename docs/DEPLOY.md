@@ -9,7 +9,9 @@ Every push to `main` runs `.github/workflows/deploy.yml`: install → build → 
 3. After the first deploy succeeds, Settings → Pages → Custom domain: `innexengineering.com` → Save.
 4. Recommended: verify the domain for your account (GitHub → your profile Settings → Pages → Add a domain) to prevent takeover.
 
-## GoDaddy DNS cutover (do after approving the preview)
+## GoDaddy DNS cutover
+
+Approve the site first from a local preview (`npm run build && npm run preview`, then open http://localhost:4321) and a green Actions run. The `ejheflin.github.io/innex-website/` URL will NOT render correctly (the site is built for the root of innexengineering.com), and once the custom domain is set it redirects to innexengineering.com.
 The current site runs on GoDaddy **Website Builder** ("Websites + Marketing Basic"). Its apex records are:
 
 | Type | Name | Value |
