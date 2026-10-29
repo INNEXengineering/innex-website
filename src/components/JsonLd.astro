@@ -1,5 +1,6 @@
 ---
 interface Props { graph: object[]; }
-const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': Astro.props.graph });
+// Escape "<" so a string value can never close the script element early.
+const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': Astro.props.graph }).replace(/</g, '\\u003c');
 ---
 <script type="application/ld+json" set:html={json} />

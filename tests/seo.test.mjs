@@ -44,19 +44,22 @@ for (const route of EXPECTED_ROUTES) {
 
     assert.equal(doc.querySelector('meta[property="og:url"]')?.getAttribute('content'), `${SITE}${route}`);
     assert.ok(doc.querySelector('meta[property="og:title"]'), 'og:title');
-    assert.ok(doc.querySelector('meta[property="og:image"]'), 'og:image');
+    const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
+    assert.ok(ogImage, 'og:image');
+    assert.ok(existsSync(join(DIST, new URL(ogImage).pathname)), `og:image file missing: ${ogImage}`);
     assert.equal(doc.querySelector('meta[name="robots"]'), null, 'indexable page must not set robots meta');
 
     const ld = doc.querySelectorAll('script[type="application/ld+json"]');
     assert.ok(ld.length >= 1, 'at least one JSON-LD block');
     const types = [];
     for (const s of ld) {
-      const data = JSON.parse(s.text); // throws on invalid JSON
+      const data = JSON.parse(s.rawText); // throws on invalid JSON
       const graph = data['@graph'] ?? [data];
       for (const node of graph) types.push(node['@type']);
     }
-    assert.ok(types.flat().includes('ProfessionalService'), 'site-wide ProfessionalService schema');
-    if (route !== '/') assert.ok(types.includes('BreadcrumbList'), 'BreadcrumbList on non-home pages');
+    const flat = types.flat();
+    assert.ok(flat.includes('Organization'), 'site-wide Organization schema');
+    if (route !== '/') assert.ok(flat.includes('BreadcrumbList'), 'BreadcrumbList on non-home pages');
 
     for (const img of doc.querySelectorAll('img')) {
       assert.ok(img.hasAttribute('alt'), `img missing alt: ${img.getAttribute('src')}`);

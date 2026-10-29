@@ -66,7 +66,7 @@ Case-type and service pages are Markdown content-collection entries sharing one 
 
 - `SEO` component: `<title>` (`{Page} | INNEX Engineering`, ≤60 chars), meta description (≤155 chars), canonical, Open Graph, Twitter card, `html lang="en"`.
 - JSON-LD:
-  - Site-wide: `Organization` + `ProfessionalService` (name, url, logo, telephone, email, `areaServed: US`, `founder`/`employee` → Paul).
+  - Site-wide: `Organization` (name, url, logo, telephone, email, `areaServed: US`, `founder`/`employee` → Paul). (ProfessionalService dropped: Google requires a street address for LocalBusiness subtypes; INNEX publishes none.)
   - Profile: `Person` (jobTitle, `hasCredential` for P.E./CSP/CMRP, `alumniOf` University of Illinois, `knowsAbout`).
   - Case-type/service pages: `Service` + `FAQPage`.
   - All non-home pages: `BreadcrumbList`.

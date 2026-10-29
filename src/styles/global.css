@@ -52,7 +52,7 @@ a:hover { color: var(--green-dark); }
 .btn {
   display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem;
   font: 600 1rem/1 var(--font-body); text-decoration: none; border-radius: var(--radius);
-  border: 2px solid var(--green); background: var(--green); color: var(--white);
+  border: 2px solid var(--green-text); background: var(--green-text); color: var(--white);
 }
 .btn:hover { background: var(--green-dark); border-color: var(--green-dark); color: var(--white); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }

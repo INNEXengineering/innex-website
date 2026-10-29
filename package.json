@@ -1,9 +1,11 @@
 {
   "name": "innex",
   "version": "1.0.0",
-  "description": "",
-  "directories": {
-    "doc": "docs"
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
   },
   "scripts": {
     "test": "node --test \"tests/**/*.test.mjs\"",
@@ -11,11 +13,6 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "private": true,
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/archivo": "^5.3.0",

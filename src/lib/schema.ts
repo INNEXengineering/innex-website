@@ -6,11 +6,11 @@ export const PERSON_ID = `${SITE.url}${EXPERT.path}#person`;
 
 export function organizationSchema() {
   return {
-    '@type': ['Organization', 'ProfessionalService'],
+    '@type': 'Organization',
     '@id': ORG_ID,
     name: SITE.name,
     url: `${SITE.url}/`,
-    logo: abs('/favicon.png'),
+    logo: abs('/logo.png'),
     image: abs(SITE.ogImage),
     telephone: `+1-${SITE.phone}`,
     email: SITE.email,
