@@ -155,3 +155,8 @@ test('CV links appear only when the CV file exists', () => {
     assert.equal(linked, hasCv, `${route}: CV link ${hasCv ? 'missing' : 'present without the file'}`);
   }
 });
+
+test('robots.txt and CNAME', () => {
+  assert.match(readFileSync(join(DIST, 'robots.txt'), 'utf8'), /Sitemap: https:\/\/innexengineering\.com\/sitemap-index\.xml/);
+  assert.equal(readFileSync(join(DIST, 'CNAME'), 'utf8').trim(), 'innexengineering.com');
+});
