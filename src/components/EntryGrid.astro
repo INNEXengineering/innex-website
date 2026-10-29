@@ -1,0 +1,26 @@
+---
+interface Item { href: string; title: string; summary: string; }
+interface Props { items: Item[]; headingLevel?: 'h2' | 'h3'; }
+const { items, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+---
+<ul class="grid">
+  {items.map((i) => (
+    <li>
+      <a href={i.href}>
+        <H>{i.title}</H>
+        <p>{i.summary}</p>
+        <span class="more" aria-hidden="true">Learn more →</span>
+      </a>
+    </li>
+  ))}
+</ul>
+<style>
+  .grid { list-style: none; padding: 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+  a { display: block; height: 100%; padding: 1.5rem; background: var(--white); color: var(--ink); text-decoration: none; }
+  a:hover { background: var(--paper); }
+  a:hover .more { color: var(--green-dark); }
+  p { color: var(--muted); font-size: 0.98rem; }
+  .more { font-weight: 600; color: var(--green-text); }
+</style>

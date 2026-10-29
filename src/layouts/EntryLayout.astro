@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import EntryGrid from '../components/EntryGrid.astro';
+import { serviceSchema, faqSchema } from '../lib/schema';
+import { EXPERT } from '../site.config';
+
+interface Props {
+  entry: CollectionEntry<'caseTypes'> | CollectionEntry<'services'>;
+  section: { name: string; href: string };
+  related: CollectionEntry<'caseTypes'>[];
+}
+const { entry, section, related } = Astro.props;
+const d = entry.data;
+const path = `${section.href}${entry.id}/`;
+---
+<BaseLayout
+  title={d.seoTitle}
+  description={d.description}
+  crumbs={[section, { name: d.title, href: path }]}
+  schema={[serviceSchema(d.title, d.description, path), faqSchema(d.faqs)]}
+>
+  <header class="container hero">
+    <p class="eyebrow">{section.name}</p>
+    <h1>{d.title}</h1>
+    <p class="lead">{d.summary}</p>
+    <div class="btn-row"><a class="btn" href="/contact/">Discuss a Case</a><a class="btn btn--ghost" href={EXPERT.path}>Expert Credentials</a></div>
+  </header>
+
+  <div class="container body">
+    <article class="prose"><slot /></article>
+    <aside>
+      {d.standards.length > 0 && (
+        <section>
+          <h2 class="h-side">Applicable Standards</h2>
+          <ul class="std-list">{d.standards.map((s) => <li>{s}</li>)}</ul>
+        </section>
+      )}
+      <section>
+        <h2 class="h-side">Your Expert</h2>
+        <p><a href={EXPERT.path}>{EXPERT.name}, {EXPERT.suffix}</a> is a licensed Professional Engineer (Texas and Illinois) and Certified Safety Professional with {EXPERT.experience}.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="section section--white">
+    <div class="container prose">
+      <h2>Questions an Expert Can Answer</h2>
+      <ul class="check-list">{d.questions.map((q) => <li>{q}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Frequently Asked Questions</h2>
+    {d.faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+  </section>
+
+  {related.length > 0 && (
+    <section class="section section--white">
+      <div class="container">
+        <h2>Related Case Types</h2>
+        <EntryGrid items={related.map((r) => ({ href: `/case-types/${r.id}/`, title: r.data.title, summary: r.data.summary }))} />
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .hero { padding-block: 2rem 3rem; }
+  .body { display: grid; gap: 3rem; padding-bottom: 3rem; }
+  @media (min-width: 900px) { .body { grid-template-columns: minmax(0, 1fr) 20rem; } }
+  aside section { border-top: 3px solid var(--ink); padding-top: 1rem; margin-bottom: 2rem; }
+  .h-side { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  details { border-top: 1px solid var(--rule); padding-block: 1rem; }
+  details:last-of-type { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 600; font-size: 1.1rem; }
+  details p { margin-top: 0.75rem; }
+</style>

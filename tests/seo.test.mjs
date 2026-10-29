@@ -75,3 +75,15 @@ for (const route of NON_INDEXED_ROUTES) {
     assert.match(html, /<meta name="robots" content="noindex/);
   });
 }
+
+test('entry pages carry Service + FAQPage schema', () => {
+  const entries = EXPECTED_ROUTES.filter((r) => /^\/(case-types|services)\/[^/]+\/$/.test(r));
+  assert.ok(entries.length > 0);
+  for (const route of entries) {
+    const types = load(route).querySelectorAll('script[type="application/ld+json"]')
+      .flatMap((s) => JSON.parse(s.rawText)['@graph'].map((n) => n['@type']))
+      .flat();
+    assert.ok(types.includes('Service'), `${route} Service`);
+    assert.ok(types.includes('FAQPage'), `${route} FAQPage`);
+  }
+});

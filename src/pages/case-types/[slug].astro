@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import EntryLayout from '../../layouts/EntryLayout.astro';
+
+export async function getStaticPaths() {
+  const all = await getCollection('caseTypes');
+  return all.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, related: all.filter((e) => entry.data.related.includes(e.id)) },
+  }));
+}
+const { entry, related } = Astro.props;
+const { Content } = await render(entry);
+---
+<EntryLayout entry={entry} related={related} section={{ name: 'Case Types', href: '/case-types/' }}>
+  <Content />
+</EntryLayout>
