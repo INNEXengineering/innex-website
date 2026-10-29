@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { EXPERT } from '../site.config';
+
+interface Props { width?: number; eager?: boolean; }
+const { width = 360, eager = false } = Astro.props;
+// Optional asset: the build must succeed whether or not the headshot has been supplied.
+const found = import.meta.glob<{ default: ImageMetadata }>('../assets/paul-neumann.{jpg,jpeg,png,webp}', { eager: true });
+const img = Object.values(found)[0]?.default;
+---
+{img ? (
+  <Image src={img} alt={`${EXPERT.name}, ${EXPERT.suffix}`} width={width} loading={eager ? 'eager' : 'lazy'} class="headshot" />
+) : (
+  <div class="monogram" role="img" aria-label={`${EXPERT.name}, ${EXPERT.suffix}`} style={`width:${width}px`}>PN</div>
+)}
+<style>
+  .headshot { border-radius: var(--radius); border-bottom: 6px solid var(--green); }
+  .monogram { aspect-ratio: 4 / 5; max-width: 100%; display: grid; place-items: center; background: var(--ink-2);
+    color: var(--paper); font: 700 5rem var(--font-head); border-bottom: 6px solid var(--green); border-radius: var(--radius); }
+</style>

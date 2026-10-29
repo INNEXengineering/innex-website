@@ -16,8 +16,10 @@ const H = headingLevel;
   ))}
 </ul>
 <style>
-  .grid { list-style: none; padding: 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule);
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+  /* Rules come from per-cell outlines (overlapping in the 1px gap), so empty trailing cells stay blank, not grey. */
+  .grid { list-style: none; padding: 1px; display: grid; gap: 1px;
+    grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr)); }
+  li { outline: 1px solid var(--rule); }
   a { display: block; height: 100%; padding: 1.5rem; background: var(--white); color: var(--ink); text-decoration: none; }
   a:hover { background: var(--paper); }
   a:hover .more { color: var(--green-dark); }

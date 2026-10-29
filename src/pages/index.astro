@@ -1,10 +1,106 @@
 ---
+import { existsSync } from 'node:fs';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../site.config';
+import EntryGrid from '../components/EntryGrid.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Headshot from '../components/Headshot.astro';
+import { personSchema } from '../lib/schema';
+import { SITE, EXPERT } from '../site.config';
+
+const hasCv = existsSync('public/paul-neumann-pe-cv.pdf');
+const items = (await getCollection('caseTypes'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6)
+  .map((e) => ({ href: `/case-types/${e.id}/`, title: e.data.title, summary: e.data.summary }));
+
+const CREDS = [
+  { k: 'P.E.', v: 'Licensed Professional Engineer, Texas & Illinois' },
+  { k: 'CSP', v: 'Certified Safety Professional' },
+  { k: 'CMRP', v: 'Certified Maintenance & Reliability Professional' },
+  { k: 'OSHA', v: 'Competent person: scaffolding, fall protection, excavation. Qualified trainer: forklifts, aerial lifts.' },
+];
+const STEPS = [
+  { h: 'Case review', p: 'A prompt, candid assessment of the engineering and safety issues and the evidence needed.' },
+  { h: 'Investigation & report', p: 'Inspections, document review, standards analysis, and root cause analysis, written up clearly.' },
+  { h: 'Deposition & trial', p: 'Technical findings explained in plain language, grounded in evidence and governing standards.' },
+];
 ---
 <BaseLayout
   title="Forensic Engineering & Safety Expert Witness | INNEX"
   description="Independent forensic mechanical engineering and safety expert witness for plaintiff and defense: industrial accidents, equipment failure, workplace injury."
+  schema={[personSchema()]}
 >
-  <section class="section container"><h1>{SITE.tagline}</h1></section>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Expert Witness &amp; Litigation Support</p>
+        <h1>{SITE.tagline}</h1>
+        <p class="lead">Independent, evidence-based engineering and safety analysis for plaintiff and defense counsel in equipment failure, product liability, premises liability, and workplace injury cases, nationwide.</p>
+        <p class="who"><a href={EXPERT.path}>{EXPERT.name}</a> · P.E. · CSP · CMRP</p>
+        <div class="btn-row">
+          <a class="btn" href="/contact/">Discuss a Case</a>
+          {hasCv
+            ? <a class="btn btn--ghost" href="/paul-neumann-pe-cv.pdf">View CV (PDF)</a>
+            : <a class="btn btn--ghost" href={EXPERT.path}>View Credentials</a>}
+        </div>
+      </div>
+      <div class="hero-photo"><Headshot eager width={360} /></div>
+    </div>
+  </section>
+
+  <section class="creds" aria-label="Credentials">
+    <ul class="container">
+      {CREDS.map((c) => (<li><strong>{c.k}</strong><span>{c.v}</span></li>))}
+    </ul>
+  </section>
+
+  <section class="section container">
+    <p class="eyebrow">Case Types</p>
+    <h2>Where Engineering and Safety Questions Decide the Case</h2>
+    <EntryGrid items={items} />
+    <p style="margin-top:1.5rem"><a href="/case-types/">See all case types →</a></p>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <p class="eyebrow">Process</p>
+      <h2>How an Engagement Works</h2>
+      <ol class="steps">
+        {STEPS.map((s, i) => (<li><span class="n">0{i + 1}</span><h3>{s.h}</h3><p>{s.p}</p></li>))}
+      </ol>
+      <p><a href="/expert-witness/">More about litigation support →</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <p class="eyebrow">Independence</p>
+    <h2>Plaintiff &amp; Defense: Opinions That Follow the Evidence</h2>
+    <p>INNEX Engineering works with plaintiff counsel, defense counsel, and insurers. Our role is to evaluate incidents, explain the engineering clearly, and provide objective opinions grounded in evidence and the applicable OSHA, ASME, ANSI, ASTM, and NFPA standards.</p>
+    <p>{EXPERT.name}, {EXPERT.suffix}, brings {EXPERT.experience} to every engagement, and the same analysis regardless of which side retains the firm.</p>
+  </section>
+
+  <CtaBand />
 </BaseLayout>
+
+<style>
+  .hero { background: var(--ink); color: var(--paper); padding-block: clamp(3rem, 8vw, 6rem); }
+  .hero .eyebrow { color: #7fd99b; }
+  .hero .lead { color: #c9cfd8; }
+  .hero .btn--ghost { color: var(--paper); border-color: var(--paper); }
+  .hero .btn--ghost:hover { background: var(--paper); color: var(--ink); }
+  .hero-grid { display: grid; gap: 3rem; align-items: center; }
+  @media (min-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1fr) 360px; } }
+  .hero-grid > * { min-width: 0; }
+  .hero-photo { justify-self: center; max-width: 100%; }
+  .who { font-weight: 600; letter-spacing: 0.04em; }
+  .who a { color: var(--paper); }
+  .creds { background: var(--white); border-bottom: 1px solid var(--rule); }
+  .creds ul { list-style: none; margin: 0 auto; padding-block: 1.5rem; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); }
+  .creds li { display: flex; flex-direction: column; border-left: 3px solid var(--green); padding-left: 0.9rem; }
+  .creds strong { font: 700 1.5rem var(--font-head); }
+  .creds span { color: var(--muted); font-size: 0.95rem; }
+  .steps { list-style: none; padding: 0; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
+  .steps li { border-top: 3px solid var(--ink); padding-top: 1rem; }
+  .n { font: 700 2rem var(--font-head); color: var(--green); display: block; margin-bottom: 0.5rem; }
+</style>
