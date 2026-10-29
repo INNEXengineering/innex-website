@@ -33,10 +33,10 @@ export function personSchema() {
     url: abs(EXPERT.path),
     worksFor: { '@id': ORG_ID },
     alumniOf: { '@type': 'CollegeOrUniversity', name: EXPERT.education.school },
-    hasCredential: [...EXPERT.licenses, ...EXPERT.certifications].map((name) => ({
-      '@type': 'EducationalOccupationalCredential',
-      name,
-    })),
+    hasCredential: [
+      ...EXPERT.licenses.map((name) => ({ name, credentialCategory: 'license' })),
+      ...EXPERT.certifications.map((name) => ({ name, credentialCategory: 'certification' })),
+    ].map((c) => ({ '@type': 'EducationalOccupationalCredential', ...c })),
     knowsAbout: EXPERT.knowsAbout,
   };
 }

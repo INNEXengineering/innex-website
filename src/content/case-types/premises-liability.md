@@ -1,7 +1,7 @@
 ---
 title: Premises Liability Safety Expert Witness
 seoTitle: Premises Liability Safety Expert
-description: Premises liability expert witness for falls, stairs, railings, and walking surface hazards at commercial and industrial sites. Analysis by a CSP and P.E.
+description: Premises liability expert witness for falls, stairs, railings, and walking surface hazards at commercial and industrial sites. Analysis by a P.E. and CSP.
 summary: Premises liability expert witness analysis of slips, trips, falls, and other injuries on commercial, warehouse, and industrial premises, measured against codes and standards.
 order: 7
 standards:

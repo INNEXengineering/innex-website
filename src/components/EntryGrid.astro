@@ -1,10 +1,15 @@
 ---
 interface Item { href: string; title: string; summary: string; }
-interface Props { items: Item[]; headingLevel?: 'h2' | 'h3'; }
-const { items, headingLevel = 'h3' } = Astro.props;
+interface Props {
+  items: Item[];
+  headingLevel?: 'h2' | 'h3';
+  /** Fixed column count at desktop (1 → 2 → N). Omit for auto-fill. */
+  columns?: 2 | 3;
+}
+const { items, headingLevel = 'h3', columns } = Astro.props;
 const H = headingLevel;
 ---
-<ul class="grid">
+<ul class:list={['grid', columns && `grid--${columns}`]}>
   {items.map((i) => (
     <li>
       <a href={i.href}>
@@ -19,6 +24,9 @@ const H = headingLevel;
   /* Rules come from per-cell outlines (overlapping in the 1px gap), so empty trailing cells stay blank, not grey. */
   .grid { list-style: none; padding: 1px; display: grid; gap: 1px;
     grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr)); }
+  .grid--2, .grid--3 { grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 640px) { .grid--2, .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 960px) { .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   li { outline: 1px solid var(--rule); }
   a { display: block; height: 100%; padding: 1.5rem; background: var(--white); color: var(--ink); text-decoration: none; }
   a:hover { background: var(--paper); }

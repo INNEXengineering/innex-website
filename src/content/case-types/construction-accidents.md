@@ -47,9 +47,9 @@ The analysis typically draws on photographs and video, inspection logs, daily re
 - Competent person designation and inspection practices
 - Site safety plans and coordination among general contractors and subcontractors
 
-## Competent person and aerial lift trainer experience
+## Competent person and boom and scissor lift trainer experience
 
-Paul Neumann, P.E., CMRP, CSP, has completed OSHA construction safety training and is a competent person for scaffolding, fall protection, and excavation. He is also a qualified trainer for aerial lifts.
+Paul Neumann, P.E., CMRP, CSP, has completed OSHA construction safety training and is a competent person for scaffolding, fall protection, and excavation. He also holds an OSHA Boom Lift & Scissor Lift: Trainer Certification.
 
 OSHA relies on competent persons to inspect scaffolds and excavations, and to train workers on fall protection and monitor its use on a jobsite. Holding them provides a practical basis for evaluating what a competent person on that site should have recognized, when they should have recognized it, and what corrective action was available. That is a more useful question for the trier of fact than a comparison against the text of the regulations alone.
 

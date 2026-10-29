@@ -47,9 +47,9 @@ Investigations typically combine an inspection of the truck and the incident loc
 - Overhead crane, hoist, and rigging incidents
 - Warehouse layout, racking, and material handling practices
 
-## Powered industrial truck trainer with warehouse operations expertise
+## Powered industrial truck train-the-trainer certification and warehouse operations expertise
 
-Paul Neumann, P.E., CMRP, CSP, is a qualified trainer for powered industrial truck operators under OSHA 1910.178(l), and his areas of expertise include warehouse operations and materials handling equipment. He knows what an effective operator training and evaluation program covers, and what a facility that follows OSHA 1910.178 looks like on the floor.
+Paul Neumann, P.E., CMRP, CSP, holds an OSHA Class 1–7 powered industrial truck train-the-trainer certification, and his areas of expertise include warehouse operations and materials handling equipment. He knows what an effective operator training and evaluation program covers, and what a facility that follows OSHA 1910.178 looks like on the floor.
 
 That experience allows a direct comparison between the training and supervision the operator actually received and what the standard requires. Combined with mechanical engineering analysis of the truck and its maintenance history, it supports opinions on whether an incident resulted from equipment condition, operator error, inadequate training, or the way the facility managed traffic and loads.
 

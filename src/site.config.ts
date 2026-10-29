@@ -30,8 +30,8 @@ export const EXPERT = {
   ],
   osha: [
     'OSHA General Industry, Construction, and Oil & Gas safety training',
-    'Qualified trainer: powered industrial trucks (forklifts)',
-    'Qualified trainer: aerial lifts',
+    'OSHA Class 1-7 Powered Industrial Trucks: Train the Trainer Certification',
+    'OSHA Boom Lift & Scissor Lift: Trainer Certification',
     'Competent person: scaffolding',
     'Competent person: fall protection',
     'Competent person: excavation',

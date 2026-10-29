@@ -20,7 +20,7 @@ faqs:
   - q: What types of industrial facilities do you investigate?
     a: Refineries, chemical and petrochemical plants, manufacturing plants, warehouses, and other industrial sites, including incidents involving fixed and rotating equipment, pressure vessels, piping, and materials handling equipment.
   - q: Do you work for plaintiffs or defendants?
-    a: Both. INNEX Engineering works with plaintiff counsel, defense counsel, and insurers, and provides the same independent, evidence-based analysis regardless of who retains the firm.
+    a: Both. INNEX Engineering works with plaintiff and defense counsel, and provides the same independent, evidence-based analysis regardless of who retains the firm.
   - q: How is process safety management relevant to litigation?
     a: OSHA's PSM standard sets requirements for hazard analysis, mechanical integrity, operating procedures, and management of change. Whether a facility met those requirements is often central to establishing the standard of care.
   - q: Can you review a case before a site inspection is possible?

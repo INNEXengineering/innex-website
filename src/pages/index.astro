@@ -1,24 +1,22 @@
 ---
-import { existsSync } from 'node:fs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EntryGrid from '../components/EntryGrid.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Headshot from '../components/Headshot.astro';
 import { personSchema } from '../lib/schema';
+import { hasCv, CV_HREF, headshot } from '../lib/assets';
 import { SITE, EXPERT } from '../site.config';
 
-const hasCv = existsSync('public/paul-neumann-pe-cv.pdf');
 const items = (await getCollection('caseTypes'))
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 6)
   .map((e) => ({ href: `/case-types/${e.id}/`, title: e.data.title, summary: e.data.summary }));
 
 const CREDS = [
   { k: 'P.E.', v: 'Licensed Professional Engineer, Texas & Illinois' },
-  { k: 'CSP', v: 'Certified Safety Professional' },
   { k: 'CMRP', v: 'Certified Maintenance & Reliability Professional' },
-  { k: 'OSHA', v: 'Competent person: scaffolding, fall protection, excavation. Qualified trainer: forklifts, aerial lifts.' },
+  { k: 'CSP', v: 'Certified Safety Professional' },
+  { k: 'OSHA', v: 'Competent person: scaffolding, fall protection, excavation. Train-the-trainer: forklifts (Classes 1–7); trainer: boom & scissor lifts.' },
 ];
 const STEPS = [
   { h: 'Case review', p: 'A prompt, candid assessment of the engineering and safety issues and the evidence needed.' },
@@ -37,15 +35,15 @@ const STEPS = [
         <p class="eyebrow">Expert Witness &amp; Litigation Support</p>
         <h1>{SITE.tagline}</h1>
         <p class="lead">Independent, evidence-based engineering and safety analysis for plaintiff and defense counsel in equipment failure, product liability, premises liability, and workplace injury cases, nationwide.</p>
-        <p class="who"><a href={EXPERT.path}>{EXPERT.name}</a> · P.E. · CSP · CMRP</p>
+        <p class="who"><a href={EXPERT.path}>{EXPERT.name}</a> · P.E. · CMRP · CSP</p>
         <div class="btn-row">
           <a class="btn" href="/contact/">Discuss a Case</a>
           {hasCv
-            ? <a class="btn btn--ghost" href="/paul-neumann-pe-cv.pdf">View CV (PDF)</a>
+            ? <a class="btn btn--ghost" href={CV_HREF}>View CV (PDF)</a>
             : <a class="btn btn--ghost" href={EXPERT.path}>View Credentials</a>}
         </div>
       </div>
-      <div class="hero-photo"><Headshot eager width={360} /></div>
+      <div class:list={['hero-photo', !headshot && 'hero-photo--fallback']}><Headshot eager width={360} /></div>
     </div>
   </section>
 
@@ -58,7 +56,7 @@ const STEPS = [
   <section class="section container">
     <p class="eyebrow">Case Types</p>
     <h2>Where Engineering and Safety Questions Decide the Case</h2>
-    <EntryGrid items={items} />
+    <EntryGrid items={items} columns={3} />
     <p style="margin-top:1.5rem"><a href="/case-types/">See all case types →</a></p>
   </section>
 
@@ -76,7 +74,7 @@ const STEPS = [
   <section class="section container prose">
     <p class="eyebrow">Independence</p>
     <h2>Plaintiff &amp; Defense: Opinions That Follow the Evidence</h2>
-    <p>INNEX Engineering works with plaintiff counsel, defense counsel, and insurers. Our role is to evaluate incidents, explain the engineering clearly, and provide objective opinions grounded in evidence and the applicable OSHA, ASME, ANSI, ASTM, and NFPA standards.</p>
+    <p>INNEX Engineering works with plaintiff and defense counsel. Our role is to evaluate incidents, explain the engineering clearly, and provide objective opinions grounded in evidence and the applicable OSHA, ASME, ANSI, ASTM, and NFPA standards.</p>
     <p>{EXPERT.name}, {EXPERT.suffix}, brings {EXPERT.experience} to every engagement, and the same analysis regardless of which side retains the firm.</p>
   </section>
 
@@ -93,6 +91,11 @@ const STEPS = [
   @media (min-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1fr) 360px; } }
   .hero-grid > * { min-width: 0; }
   .hero-photo { justify-self: center; max-width: 100%; }
+  /* Mobile: a real headshot shows at a modest size; the monogram placeholder is hidden. */
+  @media (max-width: 899.98px) {
+    .hero-photo { max-width: 240px; }
+    .hero-photo--fallback { display: none; }
+  }
   .who { font-weight: 600; letter-spacing: 0.04em; }
   .who a { color: var(--paper); }
   .creds { background: var(--white); border-bottom: 1px solid var(--rule); }

@@ -25,7 +25,7 @@ Replace the GoDaddy Website Builder site at innexengineering.com with a fast, st
 - Firm: INNEX Engineering. Texas Registered Engineering Firm F-29716.
 - Principal: Paul Neumann, P.E., CMRP, CSP. B.S. Mechanical Engineering, University of Illinois. P.E. in Texas and Illinois. Texas apprentice electrician license. ASE certified (passenger car, light truck, heavy-duty truck).
 - 20+ years practical, technical, academic, and operational experience.
-- OSHA training: general industry, construction, oil & gas; trainer for powered industrial trucks and aerial lifts; competent person for scaffolding, fall protection, excavation.
+- OSHA training: general industry, construction, oil & gas; "OSHA Class 1-7 Powered Industrial Trucks: Train the Trainer Certification"; "OSHA Boom Lift & Scissor Lift: Trainer Certification"; competent person for scaffolding, fall protection, excavation.
 - Specialized training: NFPA 70E, vibration analysis (ISO 18436-2 Cat II), root cause analysis, ASME Section VIII Div. 1 & 2, bolted joint design, pumps & mechanical seals, lubrication, welding technology, HAZMAT, confined space, arc flash, asbestos.
 - Expertise: process safety management, fixed and rotating machinery, glass-lined equipment, electrical systems, instrumentation, pressure-relief systems, materials handling equipment, maintenance & reliability, warehouse operations, semi-trailers, tank trailers, yard mules, heavy construction equipment, off-highway & recreational vehicles, agricultural equipment.
 - Services: PHA, Mechanical Integrity / PSM compliance audits, FMEA/DFMEA, mechanical design analysis, ANSI/OSHA/ASTM/ASME compliance; expert witness for plaintiff and defense in equipment failure, product liability, premises liability, workplace injury.

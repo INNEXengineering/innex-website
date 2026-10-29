@@ -1,12 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'node-html-parser';
 import { EXPECTED_ROUTES, NON_INDEXED_ROUTES } from './routes.mjs';
 
 const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
+const ROOT = fileURLToPath(new URL('../', import.meta.url));
+const CV_HREF = '/paul-neumann-pe-cv.pdf'; // keep in sync with src/lib/assets.ts
 const SITE = 'https://innexengineering.com';
 const SUFFIX = ' | INNEX Engineering';
 
@@ -121,8 +123,11 @@ test('internal links resolve to built files', () => {
           const href = a.getAttribute('href');
           if (!href.startsWith('/') || href.startsWith('//')) continue;
           const path = href.split('#')[0].split('?')[0];
+          const from = p.replace(DIST, '/');
+          // trailingSlash: 'always': page links need the slash; only file links may omit it.
+          if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) { broken.push(`${from} -> ${href} (no trailing slash)`); continue; }
           const target = path.endsWith('/') ? join(DIST, path, 'index.html') : join(DIST, path);
-          if (!existsSync(target)) broken.push(`${p.replace(DIST, '/')} -> ${href}`);
+          if (!existsSync(target) || !statSync(target).isFile()) broken.push(`${from} -> ${href}`);
         }
       }
     }
@@ -141,4 +146,12 @@ test('sitemap lists every expected route and no excluded ones', () => {
     .map((f) => readFileSync(join(DIST, f), 'utf8')).join('');
   for (const r of EXPECTED_ROUTES) assert.ok(xml.includes(`<loc>${SITE}${r}</loc>`), `sitemap missing ${r}`);
   for (const r of [...NON_INDEXED_ROUTES, '/404/']) assert.ok(!xml.includes(`${SITE}${r}<`), `sitemap must exclude ${r}`);
+});
+
+test('CV links appear only when the CV file exists', () => {
+  const hasCv = existsSync(join(ROOT, 'public', CV_HREF.slice(1)));
+  for (const route of ['/', '/about/paul-neumann-pe/']) {
+    const linked = load(route).querySelectorAll('a[href]').some((a) => a.getAttribute('href') === CV_HREF);
+    assert.equal(linked, hasCv, `${route}: CV link ${hasCv ? 'missing' : 'present without the file'}`);
+  }
 });

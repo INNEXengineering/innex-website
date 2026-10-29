@@ -1,12 +1,11 @@
 ---
-import { existsSync } from 'node:fs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import Headshot from '../../components/Headshot.astro';
 import { personSchema } from '../../lib/schema';
+import { hasCv, CV_HREF, headshot } from '../../lib/assets';
 import { EXPERT, SITE } from '../../site.config';
 
-const hasCv = existsSync('public/paul-neumann-pe-cv.pdf');
 // Every item traces to the spec's "Source facts" (expertise and services).
 const AREAS = [
   'Process safety management',
@@ -32,8 +31,8 @@ const groups = [
 ];
 ---
 <BaseLayout
-  title="Paul Neumann, P.E., CSP, CMRP"
-  description="Paul Neumann, P.E., CSP, CMRP: mechanical engineering and safety expert witness. Licensed in Texas and Illinois. Credentials, training, and CV."
+  title="Paul Neumann, P.E., CMRP, CSP"
+  description="Paul Neumann, P.E., CMRP, CSP: mechanical engineering and safety expert witness. Licensed in Texas and Illinois. Credentials, training, and CV."
   crumbs={[{ name: 'About', href: '/about/' }, { name: EXPERT.name, href: EXPERT.path }]}
   schema={[personSchema()]}
   ogType="profile"
@@ -42,14 +41,14 @@ const groups = [
     <div>
       <p class="eyebrow">Expert Profile</p>
       <h1>{EXPERT.name}, {EXPERT.suffix}</h1>
-      <p class="lead">Licensed Professional Engineer, Certified Safety Professional, and Certified Maintenance &amp; Reliability Professional with {EXPERT.experience}.</p>
+      <p class="lead">Licensed Professional Engineer, Certified Maintenance &amp; Reliability Professional, and Certified Safety Professional with {EXPERT.experience}.</p>
       <div class="btn-row">
         <a class="btn" href="/contact/">Discuss a Case</a>
-        {hasCv && <a class="btn btn--ghost" href="/paul-neumann-pe-cv.pdf">Download CV (PDF)</a>}
+        {hasCv && <a class="btn btn--ghost" href={CV_HREF}>Download CV (PDF)</a>}
         <a class="btn btn--ghost" href={SITE.phoneHref}>{SITE.phone}</a>
       </div>
     </div>
-    <div class="photo"><Headshot eager width={320} /></div>
+    <div class:list={['photo', !headshot && 'photo--fallback']}><Headshot eager width={320} /></div>
   </header>
 
   <section class="section section--white">
@@ -77,6 +76,10 @@ const groups = [
   .top { display: grid; gap: 2.5rem; padding-block: 2rem 3rem; align-items: center; }
   .top > * { min-width: 0; }
   .photo { justify-self: center; max-width: 100%; }
+  @media (max-width: 899.98px) {
+    .photo { max-width: 240px; }
+    .photo--fallback { display: none; }
+  }
   @media (min-width: 900px) { .top { grid-template-columns: minmax(0, 1fr) 320px; } }
   .cols { display: grid; gap: 3rem; }
   @media (min-width: 900px) { .cols { grid-template-columns: 1fr 1fr; } }

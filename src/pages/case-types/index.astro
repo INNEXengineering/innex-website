@@ -20,7 +20,7 @@ const items = (await getCollection('caseTypes'))
   </header>
   <section class="container" style="padding-bottom: 4rem;">
     <h2 class="visually-hidden">All case types</h2>
-    <EntryGrid items={items} />
+    <EntryGrid items={items} columns={3} />
   </section>
   <CtaBand />
 </BaseLayout>
