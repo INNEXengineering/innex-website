@@ -87,3 +87,17 @@ test('entry pages carry Service + FAQPage schema', () => {
     assert.ok(types.includes('FAQPage'), `${route} FAQPage`);
   }
 });
+
+test('entry pages: FAQPage questions match visible <summary> texts, in order', () => {
+  const entries = EXPECTED_ROUTES.filter((r) => /^\/(case-types|services)\/[^/]+\/$/.test(r));
+  for (const route of entries) {
+    const doc = load(route);
+    const faq = doc.querySelectorAll('script[type="application/ld+json"]')
+      .flatMap((s) => JSON.parse(s.rawText)['@graph'])
+      .find((n) => [n['@type']].flat().includes('FAQPage'));
+    assert.ok(faq, `${route} FAQPage`);
+    const schemaQs = faq.mainEntity.map((q) => q.name);
+    const visibleQs = doc.querySelectorAll('details > summary').map((s) => s.text.trim());
+    assert.deepEqual(visibleQs, schemaQs, `${route} FAQ schema vs visible questions`);
+  }
+});

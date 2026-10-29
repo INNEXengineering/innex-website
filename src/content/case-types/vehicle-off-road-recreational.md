@@ -2,17 +2,18 @@
 title: Off-Road & Recreational Vehicle Expert Witness
 seoTitle: Off-Road & Recreational Vehicle Expert
 description: Off-road vehicle accident expert for ATV, UTV, side-by-side, and agricultural equipment incidents. Mechanical failure and design analysis by a P.E.
-summary: Mechanical and design analysis of incidents involving ATVs, UTVs, side-by-sides, other off-highway and recreational vehicles, and agricultural equipment.
+summary: Off-road vehicle accident expert analysis of incidents involving ATVs, UTVs, side-by-sides, other off-highway and recreational vehicles, and agricultural equipment.
 order: 9
 standards:
   - ANSI/ROHVA 1 (Recreational Off-Highway Vehicles)
   - ANSI/SVIA 1 (All-Terrain Vehicles)
+  - ANSI/OPEI B71.9 (Multipurpose Off-Highway Utility Vehicles)
   - ANSI/ASABE S318 (Agricultural Machinery)
   - SAE standards, as applicable
 questions:
   - Did a failure in the steering, brakes, suspension, throttle, or drivetrain cause or contribute to the incident?
   - Was the vehicle maintained, repaired, or modified in ways that affected its safety?
-  - Did the vehicle's design meet the ANSI/ROHVA, ANSI/SVIA, or ASABE standard that applied to it, if any?
+  - Did the vehicle's design meet the consensus standard that applied to it, if any, such as ANSI/SVIA 1, ANSI/ROHVA 1, ANSI/OPEI B71.9, or ANSI/ASABE S318?
   - Were the warnings, labels, and owner's manual adequate for the hazard involved?
   - Was the vehicle being used within the manufacturer's stated limits for load, passengers, terrain, and operator age?
 faqs:
@@ -32,7 +33,7 @@ related:
 
 Off-highway and recreational vehicles, including ATVs, UTVs, and side-by-sides, operate on uneven terrain, often carry passengers or loads, and are frequently modified by their owners. When one rolls over, loses control, or fails mechanically, an off-road vehicle accident expert must determine whether the cause was a defect in the vehicle, a maintenance or repair problem, a modification, or the way the vehicle was used.
 
-Agricultural equipment raises similar questions in a working environment, where tractors and implements combine rotating drivelines, hydraulics, and travel on slopes and public roads. Consensus standards such as ANSI/ROHVA 1, ANSI/SVIA 1, and ANSI/ASABE S318 address design and safety features for these machines, and SAE standards may also apply where they cover the specific system involved.
+Agricultural equipment raises similar questions in a working environment, where tractors and implements combine rotating drivelines, hydraulics, and travel on slopes and public roads. Consensus standards address design and safety features by vehicle type: ANSI/SVIA 1 for ATVs, ANSI/ROHVA 1 for recreational off-highway vehicles, ANSI/OPEI B71.9 for multipurpose utility vehicles, and ANSI/ASABE S318 for agricultural machinery. SAE standards may also apply where they cover the specific system involved.
 
 ## What we investigate
 
@@ -47,7 +48,7 @@ Investigations typically include inspection of the vehicle and any failed compon
 
 ## Hands-on automotive certification and engineering
 
-Paul Neumann, P.E., CMRP, CSP, is an ASE certified technician for passenger cars, light trucks, and heavy-duty trucks. His areas of expertise include off-highway and recreational vehicles and agricultural equipment.
+Paul Neumann, P.E., CMRP, CSP, is an ASE certified technician for passenger cars, light trucks, and heavy-duty trucks. His areas of expertise include off-highway and recreational vehicles and agricultural equipment, and his supplemental expertise includes hands-on repair and restoration of motorcycles, recreational vehicles, small machinery, and agricultural equipment.
 
 That practical mechanical background, combined with a degree in mechanical engineering and training in root cause analysis, means components are examined by someone who understands how these systems are assembled, adjusted, and repaired in practice. It supports a clear distinction between a design or manufacturing defect, a failure caused by improper service, and damage that resulted from the incident itself.
 

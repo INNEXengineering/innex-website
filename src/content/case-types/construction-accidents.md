@@ -2,7 +2,7 @@
 title: Construction Accident Expert Witness
 seoTitle: Construction Accident Expert Witness
 description: Construction accident expert witness for falls, scaffold collapses, trench cave-ins, and aerial lift incidents, analyzed under OSHA 29 CFR 1926.
-summary: Analysis of falls, scaffold collapses, trench cave-ins, aerial lift incidents, and heavy equipment accidents on construction sites, measured against OSHA 1926 and industry practice.
+summary: Construction accident expert witness analysis of falls, scaffold collapses, trench cave-ins, aerial lift incidents, and heavy equipment accidents, measured against OSHA 1926.
 order: 3
 standards:
   - OSHA 29 CFR 1926 Construction
@@ -11,14 +11,14 @@ standards:
   - OSHA 1926 Subpart P (Excavations)
   - ANSI A92 (Aerial Lifts)
 questions:
-  - Was a competent person designated, and did that person inspect the scaffold, excavation, or fall protection system as required?
+  - Was a competent person designated, and were the scaffold and excavation inspected by that person as Subparts L and P require?
   - Was the scaffold erected, loaded, and accessed in accordance with Subpart L and the manufacturer's requirements?
   - Was the excavation sloped, benched, or shored appropriately for the soil type and depth?
   - Was fall protection required for the task, and was the system selected adequate and properly anchored?
   - Was the aerial lift operator trained and familiarized with the specific machine, and was the lift used within its rated limits?
 faqs:
   - q: What does an OSHA competent person do on a construction site?
-    a: OSHA defines a competent person as someone capable of identifying existing and predictable hazards who has authority to take prompt corrective measures. The scaffold, excavation, and fall protection standards each call for competent person inspections, so whether one was designated and actually performed those inspections is often a key issue.
+    a: OSHA defines a competent person as someone capable of identifying existing and predictable hazards who has authority to take prompt corrective measures. The scaffold and excavation standards require competent person inspections (1926.451(f)(3) and 1926.651(k)). Under the fall protection standard, competent persons mainly train workers (1926.503) and act as safety monitors (1926.502(h)), and personal fall arrest systems must be inspected before each use (1926.502(d)(21)). Whether a competent person was designated and performed those duties is often a key issue.
   - q: Who is responsible for safety on a multi-contractor construction site?
     a: Responsibility can rest with the general contractor, subcontractors, and equipment owners, depending on who created the hazard, who controlled the work area, and the terms of the contracts. Site safety plans, daily reports, inspection logs, and subcontract agreements help allocate those responsibilities.
   - q: What evidence matters most after a scaffold or trench collapse?
@@ -49,8 +49,8 @@ The analysis typically draws on photographs and video, inspection logs, daily re
 
 ## Competent person and aerial lift trainer experience
 
-Paul Neumann, P.E., CMRP, CSP, has completed OSHA construction safety training and is a competent person for scaffolding, fall protection, and excavation. He is also an OSHA trainer for aerial lifts.
+Paul Neumann, P.E., CMRP, CSP, has completed OSHA construction safety training and is a competent person for scaffolding, fall protection, and excavation. He is also a qualified trainer for aerial lifts.
 
-Competent person qualifications are what OSHA requires of the people who inspect scaffolds, trenches, and fall protection systems on a jobsite. Holding them provides a practical basis for evaluating what a competent person on that site should have recognized, when they should have recognized it, and what corrective action was available. That is a more useful question for the trier of fact than a comparison against the text of the regulations alone.
+OSHA relies on competent persons to inspect scaffolds and excavations, and to train workers on fall protection and monitor its use on a jobsite. Holding them provides a practical basis for evaluating what a competent person on that site should have recognized, when they should have recognized it, and what corrective action was available. That is a more useful question for the trier of fact than a comparison against the text of the regulations alone.
 
 The same training applies to aerial lift and heavy equipment cases, where the questions often include whether the machine was suitable for the task, whether it was inspected and maintained, and whether the operator was trained and familiarized with that specific model. Each opinion is tied to the OSHA provision or consensus standard that applied when the work was performed.

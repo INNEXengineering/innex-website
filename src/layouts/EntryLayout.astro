@@ -10,8 +10,10 @@ interface Props {
   entry: CollectionEntry<'caseTypes'> | CollectionEntry<'services'>;
   section: { name: string; href: string };
   related: CollectionEntry<'caseTypes'>[];
+  consulting?: boolean;  // service pages: project-oriented CTAs instead of case-oriented ones
 }
-const { entry, section, related } = Astro.props;
+const { entry, section, related, consulting = false } = Astro.props;
+const ctaLabel = consulting ? 'Discuss a Project' : 'Discuss a Case';
 const d = entry.data;
 const path = `${section.href}${entry.id}/`;
 ---
@@ -25,7 +27,7 @@ const path = `${section.href}${entry.id}/`;
     <p class="eyebrow">{section.name}</p>
     <h1>{d.title}</h1>
     <p class="lead">{d.summary}</p>
-    <div class="btn-row"><a class="btn" href="/contact/">Discuss a Case</a><a class="btn btn--ghost" href={EXPERT.path}>Expert Credentials</a></div>
+    <div class="btn-row"><a class="btn" href="/contact/">{ctaLabel}</a><a class="btn btn--ghost" href={EXPERT.path}>Expert Credentials</a></div>
   </header>
 
   <div class="container body">
@@ -65,7 +67,9 @@ const path = `${section.href}${entry.id}/`;
     </section>
   )}
 
-  <CtaBand />
+  {consulting
+    ? <CtaBand eyebrow="Industrial Consulting" heading="Need a PHA, PSM audit, or failure analysis?" cta={ctaLabel} />
+    : <CtaBand />}
 </BaseLayout>
 
 <style>

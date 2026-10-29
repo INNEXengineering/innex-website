@@ -2,13 +2,13 @@
 title: Equipment & Machinery Failure Analysis Expert
 seoTitle: Equipment Failure Expert Witness
 description: Equipment failure expert witness for pressure vessels, pumps, seals, bolted joints, and rotating machinery. Root cause analysis by a licensed P.E.
-summary: Mechanical root cause analysis of failed pressure vessels, piping, pumps, seals, bolted joints, and rotating machinery, including design, operation, and maintenance factors.
+summary: Equipment failure expert witness analysis of failed pressure vessels, piping, pumps, seals, bolted joints, and rotating machinery, including design, operation, and maintenance factors.
 order: 5
 standards:
   - ASME BPVC Section VIII Div. 1 & 2
   - ASME PCC-1 (Bolted Flange Joints)
   - API 610 (Centrifugal Pumps)
-  - ISO 18436-2 (Vibration Analysis)
+  - ISO 20816 (Machine Vibration Evaluation)
 questions:
   - What was the physical failure mechanism, such as overload, fatigue, corrosion, wear, or improper assembly?
   - Was the equipment designed, specified, and installed for the service conditions it actually saw?

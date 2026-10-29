@@ -1,15 +1,19 @@
 ---
 import { SITE } from '../site.config';
-interface Props { heading?: string; }
-const { heading = 'Have a case involving equipment, industrial, or workplace safety?' } = Astro.props;
+interface Props { heading?: string; eyebrow?: string; cta?: string; }
+const {
+  heading = 'Have a case involving equipment, industrial, or workplace safety?',
+  eyebrow = 'Plaintiff & Defense',
+  cta = 'Discuss a Case',
+} = Astro.props;
 ---
 <section class="section section--ink cta">
   <div class="container">
-    <p class="eyebrow">Plaintiff &amp; Defense</p>
+    <p class="eyebrow">{eyebrow}</p>
     <h2>{heading}</h2>
-    <p class="lead">Call or send a brief case summary. You will hear back directly from the engineer, not an intake service.</p>
+    <p class="lead">Call or send a brief summary. You will hear back directly from the engineer, not an intake service.</p>
     <div class="btn-row">
-      <a class="btn" href="/contact/">Discuss a Case</a>
+      <a class="btn" href="/contact/">{cta}</a>
       <a class="btn btn--ghost" href={SITE.phoneHref}>Call {SITE.phone}</a>
     </div>
   </div>

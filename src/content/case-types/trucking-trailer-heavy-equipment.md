@@ -2,7 +2,7 @@
 title: Trailer & Heavy Equipment Accident Expert
 seoTitle: Trailer & Heavy Equipment Expert
 description: Heavy equipment accident expert witness for semi-trailers, tank trailers, yard mules, and construction equipment. Mechanical analysis by a P.E.
-summary: Analysis of incidents involving semi-trailers, tank trailers, yard mules, and heavy construction equipment, focused on mechanical condition, inspection, and maintenance.
+summary: Heavy equipment accident expert witness analysis of semi-trailer, tank trailer, yard mule, and construction equipment incidents, focused on mechanical condition and maintenance.
 order: 8
 standards:
   - FMCSA 49 CFR 396 (Inspection, Repair, and Maintenance)
@@ -47,7 +47,7 @@ Investigations typically include inspection of the trailer or equipment and any 
 
 ## Heavy-duty truck certification and equipment expertise
 
-Paul Neumann, P.E., CMRP, CSP, is an ASE certified technician for heavy-duty trucks, as well as passenger cars and light trucks. His areas of expertise include semi-trailers, tank trailers, yard mules, and heavy construction equipment.
+Paul Neumann, P.E., CMRP, CSP, is an ASE certified technician for heavy-duty trucks, as well as passenger cars and light trucks. His areas of expertise include semi-trailers, tank trailers, yard mules, and heavy construction equipment, and his supplemental expertise includes the repair and restoration of commercial trucks and heavy equipment.
 
 That hands-on certification complements his mechanical engineering background. It allows him to evaluate both whether a component failed because of its design and whether the people responsible for inspecting and maintaining it followed the practices a competent technician would follow. Combined with his CMRP certification in maintenance and reliability, it supports clear opinions on whether a failure was foreseeable and preventable.
 

@@ -2,7 +2,7 @@
 title: Process Safety Management & PHA Consulting
 seoTitle: Process Safety & PHA Consulting
 description: Process hazard analysis consulting and PSM mechanical integrity audits for chemical plants and refineries, led by a licensed P.E. and CSP.
-summary: Process hazard analyses and Mechanical Integrity PSM compliance audits for facilities covered by OSHA 1910.119 and EPA's Risk Management Program.
+summary: Process hazard analysis consulting and Mechanical Integrity PSM compliance audits for facilities covered by OSHA 1910.119 and EPA's Risk Management Program.
 order: 1
 standards:
   - OSHA 29 CFR 1910.119 (PSM)
@@ -48,7 +48,7 @@ Engagements are scoped to the facility and the need, from a single-unit PHA to a
 
 ## Equipment-level process safety experience
 
-Paul Neumann, P.E., CMRP, CSP, performs Process Hazard Analyses and Mechanical Integrity PSM compliance audits for industrial operations. He is a licensed mechanical engineer with training in ASME Section VIII pressure vessel design and in pumps and mechanical seals, and his expertise includes process safety management and pressure-relief systems.
+Paul Neumann, P.E., CMRP, CSP, performs Process Hazard Analyses and Mechanical Integrity PSM compliance audits for industrial operations on a global scale. He is a licensed Professional Engineer with a mechanical engineering degree and training in ASME Section VIII pressure vessel design and in pumps and mechanical seals, and his expertise includes process safety management and pressure-relief systems.
 
 That equipment-level understanding is especially valuable in mechanical integrity work, where the questions are practical: whether inspection intervals fit the damage mechanisms, whether relief devices are tested and suited to current conditions, and whether deficiencies are corrected before equipment returns to service. His Certified Maintenance & Reliability Professional (CMRP) and Certified Safety Professional (CSP) credentials add perspective on how those programs work in the field, not only on paper.
 

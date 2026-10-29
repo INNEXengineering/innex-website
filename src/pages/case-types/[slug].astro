@@ -4,9 +4,11 @@ import EntryLayout from '../../layouts/EntryLayout.astro';
 
 export async function getStaticPaths() {
   const all = await getCollection('caseTypes');
+  const byId = new Map(all.map((e) => [e.id, e]));
   return all.map((entry) => ({
     params: { slug: entry.id },
-    props: { entry, related: all.filter((e) => entry.data.related.includes(e.id)) },
+    // Resolve in frontmatter order; reference() already guarantees every id exists.
+    props: { entry, related: entry.data.related.map((r) => byId.get(r.id)!) },
   }));
 }
 const { entry, related } = Astro.props;

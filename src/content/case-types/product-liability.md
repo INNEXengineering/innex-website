@@ -2,11 +2,11 @@
 title: Product Liability Engineering Expert Witness
 seoTitle: Product Liability Engineering Expert
 description: Product liability engineering expert for design defect, manufacturing defect, and warning claims involving machinery and mechanical products.
-summary: Engineering analysis of design, manufacturing, and warning defect claims involving machinery, equipment, vehicles, and other mechanical products.
+summary: Product liability engineering expert analysis of design, manufacturing, and warning defect claims involving machinery, equipment, vehicles, and other mechanical products.
 order: 6
 standards:
   - ANSI Z535 (Safety Signs and Labels)
-  - OSHA 29 CFR 1910.212 (Machine Guarding)
+  - ANSI B11.19 (Machine Safeguarding)
   - ASTM standards, as applicable to the product
   - ISO 12100 (Machinery Risk Assessment)
 questions:

@@ -29,6 +29,8 @@ Replace the GoDaddy Website Builder site at innexengineering.com with a fast, st
 - Specialized training: NFPA 70E, vibration analysis (ISO 18436-2 Cat II), root cause analysis, ASME Section VIII Div. 1 & 2, bolted joint design, pumps & mechanical seals, lubrication, welding technology, HAZMAT, confined space, arc flash, asbestos.
 - Expertise: process safety management, fixed and rotating machinery, glass-lined equipment, electrical systems, instrumentation, pressure-relief systems, materials handling equipment, maintenance & reliability, warehouse operations, semi-trailers, tank trailers, yard mules, heavy construction equipment, off-highway & recreational vehicles, agricultural equipment.
 - Services: PHA, Mechanical Integrity / PSM compliance audits, FMEA/DFMEA, mechanical design analysis, ANSI/OSHA/ASTM/ASME compliance; expert witness for plaintiff and defense in equipment failure, product liability, premises liability, workplace injury.
+- "PHAs, Mechanical Integrity PSM compliance audits, and FMEA performed on a global scale."
+- "Supplemental expertise: repair and restoration of passenger vehicles, motorcycles, commercial trucks, heavy equipment, recreational vehicles, small machinery, and agricultural equipment."
 - Contact: 281-755-9177, Paul@INNEXengineering.com.
 
 No invented cases, testimonials, client names, statistics, or credentials.

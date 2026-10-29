@@ -2,11 +2,11 @@
 title: Failure Analysis, FMEA & Root Cause Analysis
 seoTitle: Failure Analysis & FMEA Consulting
 description: FMEA and root cause analysis consulting for industrial equipment, including DFMEA, mechanical design analysis, and maintenance reliability review.
-summary: Failure Mode and Effects Analysis, Design FMEA, root cause analysis, and mechanical design review to prevent repeat failures and improve equipment reliability.
+summary: FMEA and root cause analysis consulting, including Design FMEA and mechanical design review, to prevent repeat failures and improve equipment reliability.
 order: 2
 standards:
   - SAE J1739 / AIAG-VDA FMEA
-  - ISO 18436-2 (Vibration Analysis)
+  - ISO 20816 (Machine Vibration Evaluation)
   - ASME PCC-1 (Bolted Flange Joints)
 questions:
   - Which failure modes could stop this equipment or create a safety hazard, and how are they controlled?

@@ -2,7 +2,7 @@
 title: Workplace Injury Expert Witness
 seoTitle: Workplace Injury Expert Witness
 description: "Workplace injury expert witness: P.E. and CSP analysis of OSHA compliance, lockout/tagout, machine guarding, and electrical safety hazards."
-summary: Engineering and safety analysis of serious workplace injuries, including whether safety programs, safeguards, and training met OSHA requirements and accepted practice.
+summary: Workplace injury expert witness analysis of serious on-the-job injuries, including whether safety programs, safeguards, and training met OSHA requirements and accepted practice.
 order: 2
 standards:
   - OSHA 29 CFR 1910 General Industry
