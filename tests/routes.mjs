@@ -8,6 +8,9 @@ const SERVICES = ['process-safety-pha', 'failure-analysis-fmea'];
 // Indexable routes that must exist in dist/ and in the sitemap.
 export const EXPECTED_ROUTES = [
   '/',
+  '/expert-witness/',
+  '/case-types/',
+  '/services/',
   ...CASE_TYPES.map((s) => `/case-types/${s}/`),
   ...SERVICES.map((s) => `/services/${s}/`),
 ];

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryGrid from '../../components/EntryGrid.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const items = (await getCollection('caseTypes'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => ({ href: `/case-types/${e.id}/`, title: e.data.title, summary: e.data.summary }));
+---
+<BaseLayout
+  title="Case Types: Engineering Expert Witness"
+  description="Engineering expert witness case types: industrial and refinery accidents, workplace injury, construction, forklifts, equipment failure, product liability."
+  crumbs={[{ name: 'Case Types', href: '/case-types/' }]}
+>
+  <header class="container" style="padding-block: 2rem 3rem;">
+    <p class="eyebrow">Case Types</p>
+    <h1>Engineering &amp; Safety Expert Witness Case Types</h1>
+    <p class="lead">Independent analysis for plaintiff and defense counsel in cases where equipment, industrial processes, or workplace safety practices are at issue.</p>
+  </header>
+  <section class="container" style="padding-bottom: 4rem;">
+    <h2 class="visually-hidden">All case types</h2>
+    <EntryGrid items={items} />
+  </section>
+  <CtaBand />
+</BaseLayout>

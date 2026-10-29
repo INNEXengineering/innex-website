@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryGrid from '../components/EntryGrid.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { serviceSchema } from '../lib/schema';
+import { EXPERT } from '../site.config';
+
+const description = 'Mechanical engineering and safety expert witness for plaintiff and defense: case review, investigation, expert reports, deposition, and trial testimony.';
+const items = (await getCollection('caseTypes'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => ({ href: `/case-types/${e.id}/`, title: e.data.title, summary: e.data.summary }));
+
+const STEPS = [
+  { h: 'Case review', p: 'Send a brief summary and key documents. We assess the engineering and safety issues, identify the evidence that matters, and tell you candidly whether the facts support the claims or defenses at issue.' },
+  { h: 'Investigation & report', p: 'Site and equipment inspections, document and testimony review, applicable codes and standards analysis, and root cause analysis, leading to clear, well-supported written opinions.' },
+  { h: 'Deposition & trial', p: 'Testimony that explains technical findings in plain language for judges and juries, grounded in the evidence and the governing standards.' },
+];
+---
+<BaseLayout
+  title="Engineering & Safety Expert Witness"
+  description={description}
+  crumbs={[{ name: 'Expert Witness', href: '/expert-witness/' }]}
+  schema={[serviceSchema('Engineering & Safety Expert Witness Services', description, '/expert-witness/')]}
+>
+  <header class="container" style="padding-block: 2rem 3rem;">
+    <p class="eyebrow">Litigation Support</p>
+    <h1>Mechanical Engineering &amp; Safety Expert Witness</h1>
+    <p class="lead">INNEX Engineering provides independent, evidence-based engineering and safety analysis in litigation involving equipment failures, product liability, premises liability, and workplace injuries.</p>
+    <div class="btn-row"><a class="btn" href="/contact/">Discuss a Case</a><a class="btn btn--ghost" href={EXPERT.path}>View Credentials</a></div>
+  </header>
+
+  <section class="section section--white">
+    <div class="container">
+      <h2>How an Engagement Works</h2>
+      <ol class="steps">
+        {STEPS.map((s, i) => (<li><span class="n">0{i + 1}</span><h3>{s.h}</h3><p>{s.p}</p></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Plaintiff &amp; Defense: Independent Opinions</h2>
+    <p>We are retained by plaintiff counsel, defense counsel, and insurers. Opinions follow the evidence and the applicable standards, regardless of who retains us. That independence is what makes testimony credible.</p>
+    <h2>Why an Engineer Who Is Also a Safety Professional</h2>
+    <p>{EXPERT.name} is both a licensed Professional Engineer and a Certified Safety Professional, and also holds the CMRP maintenance and reliability certification. Many cases turn on two questions at once: why did the equipment fail, and did the safety program meet the standard of care? Having both answered by one expert keeps the analysis consistent.</p>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <h2>Case Types</h2>
+      <EntryGrid items={items} />
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .steps { list-style: none; padding: 0; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+  .steps li { border-top: 3px solid var(--ink); padding-top: 1rem; }
+  .n { font: 700 2rem var(--font-head); color: var(--green); display: block; margin-bottom: 0.5rem; }
+</style>

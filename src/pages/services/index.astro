@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryGrid from '../../components/EntryGrid.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const items = (await getCollection('services'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => ({ href: `/services/${e.id}/`, title: e.data.title, summary: e.data.summary }));
+---
+<BaseLayout
+  title="Engineering & Safety Consulting"
+  description="Process hazard analysis, PSM mechanical integrity audits, FMEA, and root cause analysis consulting from a licensed P.E., CSP, and CMRP."
+  crumbs={[{ name: 'Consulting', href: '/services/' }]}
+>
+  <header class="container" style="padding-block: 2rem 3rem;">
+    <p class="eyebrow">Consulting</p>
+    <h1>Engineering &amp; Safety Consulting</h1>
+    <p class="lead">The same process safety and reliability expertise behind our expert witness work is available to industrial operators: hazard analyses, compliance audits, and failure analysis.</p>
+  </header>
+  <section class="container" style="padding-bottom: 4rem;">
+    <h2 class="visually-hidden">Consulting services</h2>
+    <EntryGrid items={items} />
+  </section>
+  <CtaBand heading="Need a PHA, PSM audit, or failure analysis?" />
+</BaseLayout>
