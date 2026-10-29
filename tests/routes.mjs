@@ -11,6 +11,8 @@ export const EXPECTED_ROUTES = [
   '/expert-witness/',
   '/case-types/',
   '/services/',
+  '/about/',
+  '/about/paul-neumann-pe/',
   ...CASE_TYPES.map((s) => `/case-types/${s}/`),
   ...SERVICES.map((s) => `/services/${s}/`),
 ];

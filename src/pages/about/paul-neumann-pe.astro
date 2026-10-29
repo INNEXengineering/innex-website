@@ -1,0 +1,84 @@
+---
+import { existsSync } from 'node:fs';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Headshot from '../../components/Headshot.astro';
+import { personSchema } from '../../lib/schema';
+import { EXPERT, SITE } from '../../site.config';
+
+const hasCv = existsSync('public/paul-neumann-pe-cv.pdf');
+// Every item traces to the spec's "Source facts" (expertise and services).
+const AREAS = [
+  'Process safety management',
+  'Fixed and rotating machinery, pressure-relief systems, and glass-lined equipment',
+  'Electrical systems and instrumentation',
+  'ANSI, OSHA, ASTM, and ASME compliance',
+  'FMEA, DFMEA, and Process Hazard Analysis',
+  'Mechanical design analysis',
+  'Maintenance and reliability',
+  'Warehouse operations and materials handling equipment',
+  'Semi-trailers, tank trailers, and yard mules',
+  'Heavy construction equipment',
+  'Off-highway and recreational vehicles, and agricultural equipment',
+];
+const SUPPLEMENTAL = [
+  'Repair and restoration of passenger vehicles, motorcycles, commercial trucks, heavy equipment, recreational vehicles, small machinery, and agricultural equipment',
+];
+const groups = [
+  { h: 'Licenses', items: EXPERT.licenses },
+  { h: 'Certifications', items: EXPERT.certifications },
+  { h: 'OSHA Training & Competencies', items: EXPERT.osha },
+  { h: 'Specialized Training', items: EXPERT.training },
+];
+---
+<BaseLayout
+  title="Paul Neumann, P.E., CSP, CMRP"
+  description="Paul Neumann, P.E., CSP, CMRP: mechanical engineering and safety expert witness. Licensed in Texas and Illinois. Credentials, training, and CV."
+  crumbs={[{ name: 'About', href: '/about/' }, { name: EXPERT.name, href: EXPERT.path }]}
+  schema={[personSchema()]}
+  ogType="profile"
+>
+  <header class="container top">
+    <div>
+      <p class="eyebrow">Expert Profile</p>
+      <h1>{EXPERT.name}, {EXPERT.suffix}</h1>
+      <p class="lead">Licensed Professional Engineer, Certified Safety Professional, and Certified Maintenance &amp; Reliability Professional with {EXPERT.experience}.</p>
+      <div class="btn-row">
+        <a class="btn" href="/contact/">Discuss a Case</a>
+        {hasCv && <a class="btn btn--ghost" href="/paul-neumann-pe-cv.pdf">Download CV (PDF)</a>}
+        <a class="btn btn--ghost" href={SITE.phoneHref}>{SITE.phone}</a>
+      </div>
+    </div>
+    <div class="photo"><Headshot eager width={320} /></div>
+  </header>
+
+  <section class="section section--white">
+    <div class="container cols">
+      <div>
+        <h2>Education</h2>
+        <p>{EXPERT.education.degree}, {EXPERT.education.school}</p>
+        {groups.map((g) => (<><h2>{g.h}</h2><ul class="check-list">{g.items.map((i) => <li>{i}</li>)}</ul></>))}
+      </div>
+      <div>
+        <h2>Primary Consulting Areas</h2>
+        <ul class="check-list">{AREAS.map((a) => <li>{a}</li>)}</ul>
+        <h2>Supplemental Expertise</h2>
+        <ul class="check-list">{SUPPLEMENTAL.map((a) => <li>{a}</li>)}</ul>
+        <h2>Industrial Consulting</h2>
+        <p>Paul has performed Process Hazard Analyses, Mechanical Integrity PSM compliance audits, and Failure Mode and Effects Analyses for industrial operations on a global scale. See <a href="/services/">consulting services</a> and <a href="/case-types/">case types</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .top { display: grid; gap: 2.5rem; padding-block: 2rem 3rem; align-items: center; }
+  .top > * { min-width: 0; }
+  .photo { justify-self: center; max-width: 100%; }
+  @media (min-width: 900px) { .top { grid-template-columns: minmax(0, 1fr) 320px; } }
+  .cols { display: grid; gap: 3rem; }
+  @media (min-width: 900px) { .cols { grid-template-columns: 1fr 1fr; } }
+  h2 { font-size: 1.25rem; margin-top: 1.75rem; border-top: 3px solid var(--ink); padding-top: 0.75rem; }
+</style>

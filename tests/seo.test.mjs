@@ -101,3 +101,11 @@ test('entry pages: FAQPage questions match visible <summary> texts, in order', (
     assert.deepEqual(visibleQs, schemaQs, `${route} FAQ schema vs visible questions`);
   }
 });
+
+test('profile page has Person schema with credentials', () => {
+  const graph = load('/about/paul-neumann-pe/').querySelectorAll('script[type="application/ld+json"]')
+    .flatMap((s) => JSON.parse(s.rawText)['@graph']);
+  const person = graph.find((n) => [n['@type']].flat().includes('Person'));
+  assert.ok(person, 'Person node');
+  assert.ok(person.hasCredential.length >= 5, 'credentials listed');
+});

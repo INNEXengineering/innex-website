@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { EXPERT, SITE } from '../../site.config';
+---
+<BaseLayout
+  title="About INNEX Engineering"
+  description="INNEX Engineering provides independent, evidence-based engineering and safety analysis for litigation. Texas Registered Engineering Firm F-29716."
+  crumbs={[{ name: 'About', href: '/about/' }]}
+>
+  <header class="container" style="padding-block: 2rem 3rem;">
+    <p class="eyebrow">About</p>
+    <h1>About INNEX Engineering</h1>
+    <p class="lead">Independent, evidence-based engineering and safety analysis for litigation, and practical process safety consulting for industry.</p>
+  </header>
+  <section class="section section--white">
+    <div class="container prose">
+      <h2>Our Mission</h2>
+      <p>To provide independent, evidence-based engineering and safety analysis in litigation involving equipment failures, product liability, premises liability, and workplace injuries: evaluating incidents, explaining the engineering clearly, and providing objective opinions to plaintiff and defense counsel.</p>
+      <h2>Experience</h2>
+      <p>INNEX Engineering is led by <a href={EXPERT.path}>{EXPERT.name}, {EXPERT.suffix}</a>, who brings {EXPERT.experience}.</p>
+      <p>Areas of expertise include process safety management, fixed and rotating machinery, glass-lined equipment, electrical systems, instrumentation, pressure-relief systems, materials handling equipment, maintenance and reliability programs, warehouse operations, and the inspection and maintenance of semi-trailers, tank trailers, and yard mules.</p>
+      <h2>Registration</h2>
+      <p>{SITE.firmRegistration}. Professional Engineer licensure in Texas and Illinois. Expert witness services are available nationwide.</p>
+    </div>
+  </section>
+  <CtaBand />
+</BaseLayout>
