@@ -4,13 +4,13 @@
     {
       "id": 0,
       "subject": "Task 0: Scaffold Astro project and SEO test harness",
-      "status": "pending",
+      "status": "completed",
       "description": "See docs/superpowers/plans/2026-10-29-innex-website.md → Task 0 for goal, files, acceptance criteria, and steps.\n\n```json:metadata\n{\"files\":[\"package.json\",\"astro.config.mjs\",\"tsconfig.json\",\"tests/seo.test.mjs\",\"tests/routes.mjs\"],\"verifyCommand\":\"npm run build && npm test\",\"requiresUserVerification\":false}\n```"
     },
     {
       "id": 1,
       "subject": "Task 1: Site config, design tokens, fonts, logo",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         0
       ],
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "subject": "Task 2: SEO head, JSON-LD builders, BaseLayout, header and footer",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         1
       ],
@@ -28,7 +28,7 @@
     {
       "id": 3,
       "subject": "Task 3: Content collections, entry layout, dynamic routes, first case type",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         2
       ],
@@ -37,7 +37,7 @@
     {
       "id": 4,
       "subject": "Task 4: Write remaining case-type and service content",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         3
       ],
@@ -46,7 +46,7 @@
     {
       "id": 5,
       "subject": "Task 5: Hub pages - Expert Witness, Case Types, Consulting",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         4
       ],
@@ -55,7 +55,7 @@
     {
       "id": 6,
       "subject": "Task 6: Home page",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         5
       ],
@@ -64,7 +64,7 @@
     {
       "id": 7,
       "subject": "Task 7: About and expert profile pages",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         6
       ],
@@ -73,7 +73,7 @@
     {
       "id": 8,
       "subject": "Task 8: Contact form, thanks page, privacy, 404, legacy redirects",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         7
       ],
@@ -82,7 +82,7 @@
     {
       "id": 9,
       "subject": "Task 9: robots, CNAME, GitHub Actions deploy, deploy docs",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         8
       ],
@@ -91,7 +91,7 @@
     {
       "id": 10,
       "subject": "Task 10: Quality verification - Lighthouse and structured data",
-      "status": "pending",
+      "status": "completed",
       "blockedBy": [
         9
       ],
@@ -100,12 +100,12 @@
     {
       "id": 11,
       "subject": "Task 11: Publish to GitHub, deploy, user review before DNS cutover",
-      "status": "pending",
+      "status": "in_progress",
       "blockedBy": [
         10
       ],
       "description": "See docs/superpowers/plans/2026-10-29-innex-website.md → Task 11 for goal, files, acceptance criteria, and steps.\n\n```json:metadata\n{\"files\":[],\"verifyCommand\":\"GitHub Actions green; Pages URL 200\",\"requiresUserVerification\":true,\"userVerificationPrompt\":\"Is the new site approved for DNS cutover, and is the response-within-one-business-day promise OK?\"}\n```"
     }
   ],
-  "lastUpdated": "2026-10-29T17:08:55.858Z"
+  "lastUpdated": "2026-10-29T18:07:30.477Z"
 }
